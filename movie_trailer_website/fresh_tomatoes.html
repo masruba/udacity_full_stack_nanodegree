@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-k4knGRY8jA" data-toggle="modal" data-target="#trailer" title="Since the dawn of civilization, he was worshipped as a god. Apocalypse, the first and most powerful mutant from Marvels X-Men universe, amassed the powers of many other mutants, becoming immortal and invincible. Upon awakening after thousands of years, he is disillusioned with the world as he finds it and recruits a team of powerful mutants, including a disheartened Magneto, to cleanse mankind and create a new world order, over which he will reign. As the fate of the Earth hangs in the balance, Raven with the help of Professor X must lead a team of young X-Men to stop their greatest nemesis and save mankind from complete destruction.">
+    <img src="http://image.tmdb.org/t/p/w500//zSouWWrySXshPCT4t3UKCQGayyo.jpg" width="220" height="342">
+    <h3>X-Men: Apocalypse</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FyKWUTwSYAs" data-toggle="modal" data-target="#trailer" title="Based upon Marvel Comics most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.">
+    <img src="http://image.tmdb.org/t/p/w500//inVq3FRqcYIRl2la8iZikYYxFNR.jpg" width="220" height="342">
+    <h3>Deadpool</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="43NWzay3W4s" data-toggle="modal" data-target="#trailer" title="Following the events of Age of Ultron, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.">
+    <img src="http://image.tmdb.org/t/p/w500//rDT86hJCxnoOs4ARjrCiRej7pOi.jpg" width="220" height="342">
+    <h3>Captain America: Civil War</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="jWM0ct-OLsM" data-toggle="modal" data-target="#trailer" title="In the animal city of Zootopia, a fast-talking fox who's trying to make it big goes on the run when he's framed for a crime he didn't commit. Zootopia's top cop, a self-righteous rabbit, is hot on his tail, but when both become targets of a conspiracy, they're forced to team up and discover even natural enemies can become best friends.">
+    <img src="http://image.tmdb.org/t/p/w500//sM33SANp9z6rXW8Itn7NnG1GOEs.jpg" width="220" height="342">
+    <h3>Zootopia</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tuVg_6UaQsU" data-toggle="modal" data-target="#trailer" title="A common thief joins a mythical god on a quest through Egypt.">
+    <img src="http://image.tmdb.org/t/p/w500//uPqAW07bGoljf3cmT5gecdOvVol.jpg" width="220" height="342">
+    <h3>Gods of Egypt</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="sGbxmsDFVnE" data-toggle="modal" data-target="#trailer" title="Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.">
+    <img src="http://image.tmdb.org/t/p/w500//weUSwMdQIa3NaXVzwUoIIcAi85d.jpg" width="220" height="342">
+    <h3>Star Wars: The Force Awakens</h2>
+    <h4 class="release_year">2015</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6_UI1GzaWv0" data-toggle="modal" data-target="#trailer" title="Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.">
+    <img src="http://image.tmdb.org/t/p/w500//fqe8JxDNO8B8QfOGTdjh6sPCdSC.jpg" width="220" height="342">
+    <h3>The Hateful Eight</h2>
+    <h4 class="release_year">2015</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="kmxLybfGNC4" data-toggle="modal" data-target="#trailer" title="16-year-old Cassie Sullivan tries to survive in a world devastated by the waves of an alien invasion that has already decimated the population and knocked mankind back to the Stone Age.">
+    <img src="http://image.tmdb.org/t/p/w500//s7OVVDszWUw79clca0durAIa6mw.jpg" width="220" height="342">
+    <h3>The 5th Wave</h2>
+    <h4 class="release_year">2016</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tbayiPxkUMM" data-toggle="modal" data-target="#trailer" title="After the cataclysmic events in New York with The Avengers, Steve Rogers, aka Captain America is living quietly in Washington, D.C. and trying to adjust to the modern world. But when a S.H.I.E.L.D. colleague comes under attack, Steve becomes embroiled in a web of intrigue that threatens to put the world at risk. Joining forces with the Black Widow, Captain America struggles to expose the ever-widening conspiracy while fighting off professional assassins sent to silence him at every turn. When the full scope of the villainous plot is revealed, Captain America and the Black Widow enlist the help of a new ally, the Falcon. However, they soon find themselves up against an unexpected and formidable enemythe Winter Soldier.">
+    <img src="http://image.tmdb.org/t/p/w500//5TQ6YDmymBpnF005OyoB7ohZps9.jpg" width="220" height="342">
+    <h3>Captain America: The Winter Soldier</h2>
+    <h4 class="release_year">2014</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="gsjtg7m1MMM" data-toggle="modal" data-target="#trailer" title="The ultimate X-Men ensemble fights a war for the survival of the species across two time periods as they join forces with their younger selves in an epic battle that must change the past  to save our future.">
+    <img src="http://image.tmdb.org/t/p/w500//qKkFk9HELmABpcPoc1HHZGIxQ5a.jpg" width="220" height="342">
+    <h3>X-Men: Days of Future Past</h2>
+    <h4 class="release_year">2014</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="jX-dpQAginE" data-toggle="modal" data-target="#trailer" title="Predominantly set during World War II, Steve Rogers is a sickly man from Brooklyn who's transformed into super-soldier Captain America to aid in the war effort. Rogers must stop the Red Skull  Adolf Hitler's ruthless head of weaponry, and the leader of an organization that intends to use a mysterious device of untold powers for world domination.">
+    <img src="http://image.tmdb.org/t/p/w500//dlIPGXPxXQTp9kFrRzn0RsfUelx.jpg" width="220" height="342">
+    <h3>Captain America: The First Avenger</h2>
+    <h4 class="release_year">2011</h3>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="hEJnMQG9ev8" data-toggle="modal" data-target="#trailer" title="An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.">
+    <img src="http://image.tmdb.org/t/p/w500//kqjL17yufvn9OVLyXYpvtyrFfak.jpg" width="220" height="342">
+    <h3>Mad Max: Fury Road</h2>
+    <h4 class="release_year">2015</h3>
+</div>
+
+    </div>
+  </body>
+</html>
